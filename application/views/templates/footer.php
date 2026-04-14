@@ -1,6 +1,5 @@
 </div>
 </div>
-</div>
 
 <script src="<?= base_url('assets/vendor/jquery/jquery.min.js');?>"></script>
 <script src="<?= base_url('assets/vendor/bootstrap/js/bootstrap.bundle.min.js');?>"></script>
@@ -12,11 +11,11 @@
     $(document).ready(function(){
         $('#dataTable').DataTable({
             "language": {
-                "search": "Cari",
-                "lengthMenu": "Tampilkan _MENU_ data",
-                "info": "Menampilkan _START_ sampai _END_ dengan _TOTAL_ data",
-                "paginate":{
-                    "previous": "Sebelumnya",
+                "search": "Cari:",
+                "lengthMenu": "Tampilan _MENU_ data",
+                "info": "Menampilkan _START_ sampai _END_ dari _TOTAL_ data",
+                "paginate" : {
+                    "previous" : "Sebelumnya",
                     "next": "Berikutnya"
                 }
             }
