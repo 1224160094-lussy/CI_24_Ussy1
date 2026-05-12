@@ -1,12 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('NO direct script access allowed');
 
-class kategori extends CI_Controller {
+class dashboard extends CI_Controller {
 
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('kategori_model');
         if (!$this->session->userdata('login')){
             redirect('login');
         }
@@ -14,11 +13,14 @@ class kategori extends CI_Controller {
 
     public function index()
     {
-        $data['kategori'] = $this->kategori_model->get_all();
+        $data['total_kategori'] = $this->db->count_all('kategori');
+        $data['total_buku'] = $this->db->count_all('buku');
+        $data['total_anggota'] = $this->db->count_all('anggota');
+
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');
         $this->load->view('templates/topbar');
-        $this->load->view('kategori/index', $data);
+        $this->load->view('dashboard/index', $data);
         $this->load->view('templates/footer');
     }
 

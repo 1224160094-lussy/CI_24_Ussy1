@@ -1,20 +1,17 @@
 <?php
 defined('BASEPATH') OR exit('NO direct script access allowed');
 
-class buku_model extends CI_Model {
+class anggota_model extends CI_Model {
 
-    private $table = 'buku';
+    private $table = 'anggota';
 
     // =======================
     // TAMPIL SEMUA DATA
     // =======================
     public function get_all()
     {
-        $this->db->select('buku.*,kategori.nama_kategori');
-        $this->db->from('buku'); 
-        $this->db->join('kategori', 'kategori.id = buku.kategori_id');
-
-        return $this->db->get()->result(); // karena sudah pakai join, jadi tidak perlu get($this->table)
+        $this->db->order_by('nomor_anggota', 'ASC');
+        return $this->db->get('anggota')->result();
     }
 
     // =======================
@@ -23,7 +20,7 @@ class buku_model extends CI_Model {
     public function get_by_id($id)
     {
         $this->db->where('id', $id);
-        return $this->db->get('buku')->row();
+        return $this->db->get('anggota')->row();
     }
 
     // =======================
